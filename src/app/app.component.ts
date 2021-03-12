@@ -8,18 +8,14 @@ import { Quotation } from './models/quotation';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  showForm = false;
   quotes : Quotation[] = QUOTES
   quotation: Quotation = {sentence: '' , author: '', votes:0}
 
-  onSwitchForm(): void {
-    this.showForm = !this.showForm
-  }
-  addQuote(){
-    this.quotes.unshift(this.quotation)
-    this.quotation = {sentence: '' , author: '', votes:0}
-  }
   addVote(quote: Quotation, value: number){
     quote.votes += value
+  }
+  onNewQuotation(quote:Quotation){
+    this.quotes.unshift(quote)
+    console.log(quote)
   }
 }
