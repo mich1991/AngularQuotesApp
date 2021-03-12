@@ -14,7 +14,6 @@ export class AppComponent {
 
   onSwitchForm(): void {
     this.showForm = !this.showForm
-    console.log(this.quotesRanking(1))
   }
   addQuote(){
     this.quotes.unshift(this.quotation)
@@ -22,15 +21,5 @@ export class AppComponent {
   }
   addVote(quote: Quotation, value: number){
     quote.votes += value
-  }
-  quotesRanking(value:number){
-    switch (value) {
-      case -1:
-        return [...this.quotes].sort((a,b) => a.votes - b.votes).slice(0,3)
-      case 1:
-        return [...this.quotes].sort((a,b) => b.votes - a.votes).slice(0,3)
-      default:
-        return this.quotes
-    }
   }
 }

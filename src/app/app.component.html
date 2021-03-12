@@ -1,9 +1,5 @@
 <!-- Header -->
-<nav>
-  <div class="nav-wrapper teal darken-3">
-    <span class="brand-logo center">Best Quotes</span>
-  </div>
-</nav>
+<app-navbar></app-navbar>
 <!-- END Header -->
 
 <div class="container q-container">
@@ -58,30 +54,8 @@
     <!-- END Quotes List  -->
     <!-- Quotes Ranking -->
     <div class="col s4">
-      <div class="col s12">
-        <h5>Best Quotes</h5>
-        <div class="collection">
-          <ng-container *ngFor="let quote of quotesRanking(1)">
-            <p class="collection-item">
-              <span class="blue lighten-4 badge">{{quote.votes}}</span>
-              {{quote.sentence}}
-              <span class="blue-text"><em>{{quote.author}}</em></span>
-            </p>
-          </ng-container>
-        </div>
-      </div>
-      <div class="col s12">
-        <h5>Worst Quotes</h5>
-        <div class="collection">
-          <ng-container *ngFor="let quote of quotesRanking(-1)">
-            <p class="collection-item">
-              <span class="blue lighten-4 badge">{{quote.votes}}</span>
-              {{quote.sentence}}
-              <span class="blue-text"><em>{{quote.author}}</em></span>
-            </p>
-          </ng-container>
-        </div>
-      </div>
+      <app-ranking [quotes]="quotes" [rank]="1" ></app-ranking>
+      <app-ranking [quotes]="quotes" [rank]="-1" ></app-ranking>
     </div>
     <!-- END Quotes Ranking -->
   </div>

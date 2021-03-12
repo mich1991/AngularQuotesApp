@@ -1,0 +1,12 @@
+<div class="col s12">
+    <h5>{{rank===1 ? 'Best Quotes' : 'Worst Quotes'}}</h5>
+    <div class="collection">
+      <ng-container *ngFor="let quote of quotesRanking(rank)">
+        <p class="collection-item">
+          <span class="blue lighten-4 badge">{{quote.votes}}</span>
+          {{quote.sentence}}
+          <span class="blue-text"><em>{{quote.author}}</em></span>
+        </p>
+      </ng-container>
+    </div>
+  </div>
