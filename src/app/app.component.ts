@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { QUOTES } from './models/database';
+import { Quotation } from './models/quotation';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +9,28 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   showForm = false;
+  quotes : Quotation[] = QUOTES
+  quotation: Quotation = {sentence: '' , author: '', votes:0}
 
   onSwitchForm(): void {
     this.showForm = !this.showForm
+    console.log(this.quotesRanking(1))
+  }
+  addQuote(){
+    this.quotes.unshift(this.quotation)
+    this.quotation = {sentence: '' , author: '', votes:0}
+  }
+  addVote(quote: Quotation, value: number){
+    quote.votes += value
+  }
+  quotesRanking(value:number){
+    switch (value) {
+      case -1:
+        return [...this.quotes].sort((a,b) => a.votes - b.votes).slice(0,3)
+      case 1:
+        return [...this.quotes].sort((a,b) => b.votes - a.votes).slice(0,3)
+      default:
+        return this.quotes
+    }
   }
 }
