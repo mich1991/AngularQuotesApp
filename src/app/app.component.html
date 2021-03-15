@@ -28,12 +28,7 @@
             </div>
             <div class="card-action right-align">
               <span class="badge grey darken-2 left white-text">{{quote.votes}}</span>
-              <app-button customClasses="btn blue mr-5" (clickButton)="addVote(quote, 1)">
-                <i class="material-icons">exposure_plus_1</i>
-              </app-button>
-              <app-button customClasses="btn red mr-5" (clickButton)="addVote(quote, -1)">
-                <i class="material-icons">exposure_minus_1</i>
-              </app-button>
+              <app-vote-buttons (voteValue)="addVote(quote, $event)"></app-vote-buttons>
             </div>
           </div>
           <!-- END Single Card -->

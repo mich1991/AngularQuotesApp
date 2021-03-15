@@ -1,15 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-vote-buttons',
   templateUrl: './vote-buttons.component.html',
   styleUrls: ['./vote-buttons.component.css']
 })
-export class VoteButtonsComponent implements OnInit {
+export class VoteButtonsComponent {
 
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+  @Output() voteValue = new EventEmitter<number>();
 
 }
