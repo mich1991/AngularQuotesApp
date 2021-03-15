@@ -5,9 +5,3 @@
   .q-container {
     position: relative;
   }
-  
-  .add-button {
-    position: absolute !important;
-    right: 0;
-    top: -22px;
-  }

@@ -13,7 +13,6 @@ export class FormComponent {
   
   onSwitchForm(): void {
     this.showForm = !this.showForm
-    console.log(this.showForm)
   }
   addQuote(){
     this.newQuotation.emit(this.quotation)
