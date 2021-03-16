@@ -11,11 +11,11 @@ export class AppComponent {
   quotes : Quotation[] = QUOTES
   quotation: Quotation = {sentence: '' , author: '', votes:0}
 
-  addVote(quote: Quotation, value: number){
+  addVote(event:any){
+    const {quote, value} = event
     quote.votes += value
   }
   onNewQuotation(quote:Quotation){
     this.quotes.unshift(quote)
-    console.log(quote)
   }
 }
